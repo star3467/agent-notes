@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>首頁 | AI Agent 學習筆記</title>
+<meta name="description" content="整理 AI Agent 與四種設計模式（Reflection、Tool Use、Planning、Multiagent）的個人學習筆記網站。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html">AI Agent 學習筆記</a>
+  <nav><a href="index.html">首頁</a><a href="pages/agent-patterns.html">四大設計模式</a></nav>
+</div></header>
+<main><div class="wrap">
+  <h1>AI Agent 學習筆記</h1>
+  <p class="lead">把「教 AI 做事的方法」整理成容易回頭查的小頁面：每頁一個主題，先講是什麼，再講怎麼運作，最後用例子收尾。</p>
+
+  <h2>從這裡開始</h2>
+  <div class="cards">
+    <a class="card" href="pages/agent-patterns.html"><b>AI Agent 的四個設計模式</b><small>總覽：Agent = Model + Harness，四種模式怎麼選、怎麼組合。</small></a>
+  </div>
+
+  <h2>概念</h2>
+  <div class="cards">
+<!-- CONCEPTS:START -->
+    <a class="card" href="pages/rag.html"><b>RAG（檢索增強生成）</b><small>電腦自動找相關資料放進 prompt，再讓 LLM 回答。</small></a>
+<!-- CONCEPTS:END -->
+  </div>
+
+  <h2>設計模式</h2>
+  <div class="cards">
+<!-- PATTERNS:START -->
+    <a class="card" href="pages/reflection.html"><b>Reflection</b><small>讓 AI 自己檢查並修改。</small></a>
+    <a class="card" href="pages/tool-use.html"><b>Tool Use</b><small>讓 AI 呼叫工具，並附我的作業實例。</small></a>
+    <a class="card" href="pages/planning.html"><b>Planning</b><small>先規劃再行動，含 CoT 與 PM 分工。</small></a>
+    <a class="card" href="pages/multiagent.html"><b>Multiagent Collaboration</b><small>多個 Agent 分工合作。</small></a>
+<!-- PATTERNS:END -->
+  </div>
+</div></main>
+<footer class="site"><div class="wrap">本站為個人學習筆記，內容整理自課程教材。</div></footer>
+</body>
+</html>
