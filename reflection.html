@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reflection：讓 AI 自己檢查並修改 | AI Agent 學習筆記</title>
+<meta name="description" content="Reflection 讓一個 LLM 寫初稿、另一個 LLM 當評論員提出建議，再由作者修改，可重複多次。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html">AI Agent 學習筆記</a>
+  <nav><a href="../index.html">首頁</a><a href="agent-patterns.html">四大設計模式</a></nav>
+</div></header>
+<main><div class="wrap">
+  <p><span class="tag">模式</span></p>
+  <h1>Reflection：讓 AI 自己檢查並修改</h1>
+  <p class="lead">人寫文章會一邊寫一邊改；讓 AI 也這樣做，品質通常比一次寫完好。</p>
+  <h2>它是什麼</h2>
+  <p>第一個 LLM 扮演「作者」產生初稿；第二個 LLM 扮演「評論員」進行評估並提供改善建議；然後作者依建議修改。這個循環可以重複數次。</p>
+  <div class="flow"><span>Prompt</span><i>→</i><span>作者 LLM</span><i>→</i><span>初稿</span><i>→</i><span>評論員 LLM</span><i>→</i><span>評論</span><i>→</i><span>作者修改</span></div>
+  <h2>設計重點</h2>
+  <ul>
+    <li><b>角色分開：</b>寫的人與評的人用不同提示詞，評論才不會只是附和。</li>
+    <li><b>評論員可以用不同模型：</b>換一個模型當評審，比較不容易出現同樣的盲點。</li>
+    <li><b>要有停止條件：</b>最多反思幾輪、或評論員說「沒問題」就停，避免無限循環。</li>
+  </ul>
+  <div class="note"><b>重點：</b>Reflection 靠「再看一遍」提升品質，代價是多呼叫幾次模型。</div>
+  <h2>來源</h2>
+  <ul class="sources"><li>課程教材「08 教 AI 做事的方法：AI Agent 與 Agentic Design Patterns」（政治大學應用數學系 蔡炎龍），Reflection 單元（對應 Demo07a）</li></ul>
+</div></main>
+<footer class="site"><div class="wrap">本站為個人學習筆記，內容整理自課程教材。<a href="../index.html">回首頁</a></div></footer>
+</body>
+</html>

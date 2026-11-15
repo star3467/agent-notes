@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Multiagent Collaboration：多個 Agent 一起工作 | AI Agent 學習筆記</title>
+<meta name="description" content="Multiagent Collaboration 讓多個 AI Agent 分工合作，常由 PM 角色負責分派。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html">AI Agent 學習筆記</a>
+  <nav><a href="../index.html">首頁</a><a href="agent-patterns.html">四大設計模式</a></nav>
+</div></header>
+<main><div class="wrap">
+  <p><span class="tag">模式</span></p>
+  <h1>Multiagent Collaboration：多個 Agent 一起工作</h1>
+  <p class="lead">一個 Agent 做不完、做不好的事，讓多個各有專長的 Agent 一起做。</p>
+  <h2>它是什麼</h2>
+  <p>多個 AI Agent 一起工作。每個 Agent 可以有不同角色、提示詞、工具，甚至不同模型。</p>
+  <h2>常見組合</h2>
+  <ul>
+    <li><b>PM + 執行者：</b>一個 Agent 拆解並分派，其他 Agent 各自負責查資料、計算、撰寫。</li>
+    <li><b>作者 + 評論員：</b>這其實就是 <a href="reflection.html">Reflection</a> 的雙角色版本。</li>
+  </ul>
+  <h2>Agent 之間怎麼溝通</h2>
+  <p>教材提到 Google 提出的 <b>A2A（Agent-to-Agent）</b>，定義了代理之間交換資訊、協作與協調的方式；相對地，MCP 關注的是單一 Agent 如何使用外部工具。</p>
+  <div class="note"><b>重點：</b>先把單一 Agent 做好（會規劃、會用工具、會反思），再考慮多個 Agent 合作。</div>
+  <div class="warn"><b>備註：</b>本頁內容較精簡，教材對此模式著墨不多；之後可依新資料擴充。</div>
+  <h2>來源</h2>
+  <ul class="sources"><li>課程教材「08 教 AI 做事的方法：AI Agent 與 Agentic Design Patterns」（政治大學應用數學系 蔡炎龍），第 37、38 頁</li></ul>
+</div></main>
+<footer class="site"><div class="wrap">本站為個人學習筆記，內容整理自課程教材。<a href="../index.html">回首頁</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Agent 的四個設計模式 | AI Agent 學習筆記</title>
+<meta name="description" content="AI Agent 可以用 Reflection、Tool Use、Planning、Multiagent Collaboration 四種設計模式來理解，本頁是總覽。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html">AI Agent 學習筆記</a>
+  <nav><a href="../index.html">首頁</a><a href="agent-patterns.html">四大設計模式</a></nav>
+</div></header>
+<main><div class="wrap">
+  <p><span class="tag">概念</span></p>
+  <h1>AI Agent 的四個設計模式</h1>
+  <p class="lead">與其把 AI 當成問一句答一句的聊天機器人，不如教它「做事的方法」。這頁先看全貌。</p>
+  <h2>先搞懂：什麼是 AI Agent</h2>
+  <p>教材的定義是 <b>AI Agent = AI Model + Harness</b>：模型負責思考，Harness（外圍的程式、工具、流程與規則）負責讓模型能把事情做完。換句話說，在 LLM 時代，Agent 基本上就是教 AI 用「我們做事的方法」做事情。</p>
+  <div class="note"><b>重點：</b>聊天機器人是「你問、它答」；Agent 是「你交代目標，它規劃、找資料、反覆嘗試，直到做完」。</div>
+  <h2>四個模式一覽</h2>
+  <table>
+    <tr><th>模式</th><th>一句話</th><th>適合的情境</th></tr>
+    <tr><td><a href="reflection.html">Reflection（反思）</a></td><td>先產生初稿，再自我檢查、修改，可重複數次</td><td>寫作、程式碼、需要品質把關</td></tr>
+    <tr><td><a href="tool-use.html">Tool Use（工具使用）</a></td><td>LLM 不擅長的事，呼叫工具來做</td><td>精確計算、查實際資料、上網搜尋</td></tr>
+    <tr><td><a href="planning.html">Planning（規劃）</a></td><td>先想一想、打草稿，拆解步驟再執行</td><td>複雜任務、多步驟流程</td></tr>
+    <tr><td><a href="multiagent.html">Multiagent Collaboration</a></td><td>多個 Agent 分工合作</td><td>任務可拆成不同角色負責</td></tr>
+  </table>
+  <h2>它們可以組合</h2>
+  <p>實務上常常混用：例如一個 PM 角色的 LLM 先做 Planning 拆解任務，分派給會 Tool Use 的 Agent 執行，最後再用 Reflection 檢查結果。</p>
+  <div class="flow"><span>Planning</span><i>→</i><span>Tool Use</span><i>→</i><span>Reflection</span></div>
+  <h2>來源</h2>
+  <ul class="sources"><li>課程教材「08 教 AI 做事的方法：AI Agent 與 Agentic Design Patterns」（政治大學應用數學系 蔡炎龍）</li><li>Andrew Ng 對 agentic workflows 與四個設計模式的介紹（教材第 18 頁引用）</li></ul>
+</div></main>
+<footer class="site"><div class="wrap">本站為個人學習筆記，內容整理自課程教材。<a href="../index.html">回首頁</a></div></footer>
+</body>
+</html>

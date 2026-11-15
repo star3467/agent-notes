@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Planning：先規劃再行動 | AI Agent 學習筆記</title>
+<meta name="description" content="Planning 讓 LLM 先拆解任務、列出步驟，再依計畫完成，CoT 與 PM 角色分派工作都是例子。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html">AI Agent 學習筆記</a>
+  <nav><a href="../index.html">首頁</a><a href="agent-patterns.html">四大設計模式</a></nav>
+</div></header>
+<main><div class="wrap">
+  <p><span class="tag">模式</span></p>
+  <h1>Planning：先規劃再行動</h1>
+  <p class="lead">遇到複雜任務，先想清楚步驟，再動手。</p>
+  <h2>它是什麼</h2>
+  <p>先請 LLM「想一想」、「打草稿」，再正式回應。常見做法是先把任務拆成 1、2、3 的步驟清單，再逐步完成，回覆就比較完整。</p>
+  <div class="flow"><span>Prompt</span><i>→</i><span>LLM 擬定計畫</span><i>→</i><span>步驟 1</span><i>→</i><span>步驟 2</span><i>→</i><span>步驟 3</span></div>
+  <h2>例子一：CoT（Chain-of-Thought）</h2>
+  <p>CoT 是有名的方法，好處是：</p>
+  <ul>
+    <li>有系統地拆解複雜議題</li>
+    <li>找出議題之間的關聯性</li>
+    <li>更完整地涵蓋各個面向</li>
+    <li>容易看出優先順序</li>
+  </ul>
+  <p>像 DeepSeek-R1 會先產生「思考」，用 <code>&lt;think&gt;</code> 與 <code>&lt;/think&gt;</code> 標籤包起來，再給最終答案。</p>
+  <h2>例子二：PM 角色分配工作</h2>
+  <p>常常有一位如 PM 的 LLM 負責分配工作：任務拆解完成後，1 號去算這個、2 號去查資料、3 號依資訊分析理由，4 號這次沒事。這就把 Planning 與多 Agent 分工接在一起。</p>
+  <div class="note"><b>重點：</b>像 DeepSeek-R1 這種模型的目標是任何問題都能產生好的思考；如果只是單一型任務，我們可以針對任務打造更好的「思考」流程。</div>
+  <h2>來源</h2>
+  <ul class="sources"><li>課程教材「08 教 AI 做事的方法：AI Agent 與 Agentic Design Patterns」（政治大學應用數學系 蔡炎龍），Planning 單元（對應 Demo07c）</li></ul>
+</div></main>
+<footer class="site"><div class="wrap">本站為個人學習筆記，內容整理自課程教材。<a href="../index.html">回首頁</a></div></footer>
+</body>
+</html>

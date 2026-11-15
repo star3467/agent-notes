@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RAG（檢索增強生成） | AI Agent 學習筆記</title>
+<meta name="description" content="RAG 由電腦自動找出相關資訊並放進 prompt，再讓 LLM 回答；課程也把它視為一種 AI Agent，並連結到 Content Engineering 的兩個要件。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html">AI Agent 學習筆記</a>
+  <nav><a href="../index.html">首頁</a><a href="agent-patterns.html">四大設計模式</a></nav>
+</div></header>
+<main><div class="wrap">
+  <p><span class="tag">概念</span></p>
+  <h1>RAG（檢索增強生成）</h1>
+  <p class="lead">LLM 不知道你腦中的背景。RAG 的做法是讓電腦自動把相關資訊找出來，放進 prompt 再回答。</p>
+
+  <h2>它是什麼</h2>
+  <p>RAG 的特點：由電腦自動找到相關的資訊，再放進 prompt 讓 LLM 回答。</p>
+  <p>課程說，RAG 其實也是一種 AI Agent。</p>
+  <div class="flow"><span>使用者問題</span><i>→</i><span>取回相關文件</span><i>→</i><span>放入 prompt</span><i>→</i><span>LLM 回答</span></div>
+
+  <h2>怎麼運作</h2>
+  <ul>
+    <li>使用者提出問題。</li>
+    <li>系統取回與問題相關的文件。</li>
+    <li>把取回的文件放入 prompt。</li>
+    <li>LLM 根據 prompt 回答。</li>
+  </ul>
+
+  <h2>和 Content Engineering 的關係</h2>
+  <p>做好 Content Engineering 需要兩件事：</p>
+  <ul>
+    <li><b>正確的資訊</b>：LLM 不知道你腦中的背景，要把該給的資料、條件講清楚。</li>
+    <li><b>清楚的指引</b>：講明白要它做什麼、輸出成什麼樣子、給誰看。</li>
+  </ul>
+  <p>RAG 對應的是前者：資訊不用手動貼，由電腦自動找來。</p>
+
+  <div class="warn"><b>備註：</b>課程重點沒有提供檢索的具體做法（例如怎麼找文件）與實際例子，這頁不補充。「RAG 對應正確的資訊」是我的整理，不是教材原文。</div>
+
+  <div class="note"><b>重點：</b>RAG ＝ 電腦自動找相關資料 → 放進 prompt → LLM 回答，也算一種 AI Agent。</div>
+
+  <h2>來源</h2>
+  <ul class="sources"><li>課程教材「08 教 AI 做事的方法」第 11、14 頁</li></ul>
+</div></main>
+<footer class="site"><div class="wrap">本站為個人學習筆記，內容整理自課程教材。<a href="../index.html">回首頁</a></div></footer>
+</body>
+</html>

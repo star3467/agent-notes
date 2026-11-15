@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tool Use：讓 AI 呼叫工具 | AI Agent 學習筆記</title>
+<meta name="description" content="Tool Use 讓 LLM 把需求轉成工具呼叫，由程式實際執行函式，再用結果回答，適合精確計算與查實際資料。">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html">AI Agent 學習筆記</a>
+  <nav><a href="../index.html">首頁</a><a href="agent-patterns.html">四大設計模式</a></nav>
+</div></header>
+<main><div class="wrap">
+  <p><span class="tag">模式</span></p>
+  <h1>Tool Use：讓 AI 呼叫工具</h1>
+  <p class="lead">LLM 不太會做的事，就不要再逼它了，交給工具。</p>
+  <h2>為什麼需要工具</h2>
+  <p>LLM 不擅長精確計算，也不知道你的實際資料，更不能自己上網。這些交給工具（函式）：<b>精確計算、實際數據、網路搜尋</b>。</p>
+  <h2>兩個階段</h2>
+  <p>以教材的飲料店為例，使用者說「我想訂 20 杯麥茶」：</p>
+  <div class="flow"><span>使用者問題</span><i>→</i><span>① LLM 決定呼叫 <code>quote_order("麥茶", 20)</code></span><i>→</i><span>Python 執行函式</span><i>→</i><span>回傳 JSON</span><i>→</i><span>② LLM 根據 JSON 回答</span></div>
+  <ol>
+    <li>LLM 先把自然語言轉成「工具名稱＋參數」。</li>
+    <li>程式執行函式，得到 JSON 結果；LLM 再依這份資料回答使用者。</li>
+  </ol>
+  <p>JSON 基本上是用文字描述「有欄位名稱的資料表單」，電腦很喜歡處理這種格式。</p>
+<pre><code>{"ok": true, "item_name": "麥茶", "quantity": 20,
+ "unit_price": 30, "total": 600, "stock": 30,
+ "currency": "TWD", "ordered": false}</code></pre>
+  <h2>安全上的設計</h2>
+  <ul>
+    <li>只允許事先寫好的工具名稱，不用 <code>eval()</code>。</li>
+    <li>參數與型別由 Python 檢查，不合理的請求（例如 0 杯、不存在的品名）直接拒絕。</li>
+    <li>缺資訊時請模型追問（clarify），不要猜參數。</li>
+  </ul>
+  <h2>工具不一定要自己寫</h2>
+  <p>很多平台可以連結現成工具，例如上網搜尋、email、處理桌面檔案。教材提到兩個協定：<b>MCP</b>（Anthropic，與外部世界溝通）和 <b>A2A</b>（Google，Agent 之間溝通）。</p>
+  <div class="note"><b>重點：</b>模型負責「理解並提出請求」，真正做事與計算的是程式；結果還要交回模型，才能產生給人看的回答。</div>
+  <h2>我的作業實例</h2>
+  <p>我用同樣的三階段架構做了一個「打工時數與收支小幫手」：說「昨天打了 4.5 小時」會呼叫記錄工時的函式，說「統整這個月」會由 Python 算出總工時、每週工時、收入與結餘，再由 LLM 整理成回答。工時乘時薪、加總與結餘都由 Python 計算，不讓 LLM 心算。</p>
+  <h2>來源</h2>
+  <ul class="sources"><li>課程教材「08 教 AI 做事的方法：AI Agent 與 Agentic Design Patterns」（政治大學應用數學系 蔡炎龍），Tool Use 單元（對應 Demo07b）</li></ul>
+</div></main>
+<footer class="site"><div class="wrap">本站為個人學習筆記，內容整理自課程教材。<a href="../index.html">回首頁</a></div></footer>
+</body>
+</html>
